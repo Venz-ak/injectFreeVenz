@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venz Xiter Free</title>
+    <style>
+        /* Animasi latar belakang */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 255));
+            background-size: 400% 400%;
+            animation: gradientAnimation 8s infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: #fff;
+            width: 300px;
+        }
+
+        .container input, .container button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .container button {
+            background-color: rgb(255, 0, 0);
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .container button:hover {
+            background-color: rgb(200, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Halaman Login -->
+    <div id="loginPage" class="container">
+        <h1>Venz Xiter Free</h1>
+        <input type="text" id="username" placeholder="Masukkan Username">
+        <input type="password" id="password" placeholder="Masukkan Password">
+        <button id="loginButton">Login</button>
+    </div>
+
+    <!-- Halaman Fitur -->
+    <div id="featurePage" class="container hidden">
+        <h1>Fitur</h1>
+        <button id="aimLockButton">AIM LOCK</button>
+        <button id="bypasButton">BYPAS VVIP</button>
+        <p id="status"></p>
+    </div>
+
+    <script>
+        // Seleksi elemen
+        const loginPage = document.getElementById('loginPage');
+        const featurePage = document.getElementById('featurePage');
+        const loginButton = document.getElementById('loginButton');
+        const aimLockButton = document.getElementById('aimLockButton');
+        const bypasButton = document.getElementById('bypasButton');
+        const statusText = document.getElementById('status');
+
+        // Fungsi Login
+        loginButton.addEventListener('click', () => {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (username === "Venz11" && password === "Free") {
+                // Sembunyikan halaman login dan tampilkan halaman fitur
+                loginPage.classList.add('hidden');
+                featurePage.classList.remove('hidden');
+            } else {
+                alert("Username atau Password salah!");
+            }
+        });
+
+        // Fungsi untuk mengaktifkan fitur
+        aimLockButton.addEventListener('click', () => {
+            statusText.textContent = "Berhasil mengaktifkan AIM LOCK";
+        });
+
+        bypasButton.addEventListener('click', () => {
+            statusText.textContent = "Berhasil mengaktifkan BYPAS VVIP";
+        });
+    </script>
+</body>
+</html>
